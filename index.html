@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartCV Tailor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>SmartCV Tailor</h1>
+    <p>Upload your resume, paste a job description, and generate tailored career assets in seconds.</p>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>1) Candidate Profile</h2>
+      <label for="candidateName">Full name</label>
+      <input id="candidateName" placeholder="Jane Doe" />
+      <label for="targetRole">Target role</label>
+      <input id="targetRole" placeholder="Senior Product Manager" />
+      <label for="experienceYears">Years of experience</label>
+      <input id="experienceYears" type="number" min="0" max="50" value="5" />
+      <label for="resumeInput">Resume text</label>
+      <textarea id="resumeInput" rows="10" placeholder="Paste your current resume here..."></textarea>
+    </section>
+
+    <section class="card">
+      <h2>2) Job Description</h2>
+      <label for="jobInput">Job description text</label>
+      <textarea id="jobInput" rows="15" placeholder="Paste the target job description..."></textarea>
+      <div class="actions">
+        <button id="analyzeBtn">Analyze Match</button>
+        <button id="generateBtn">Generate Tailored Assets</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>ATS Match Score</h2>
+      <div class="score-wrap">
+        <div id="scoreCircle">0%</div>
+      </div>
+      <p id="scoreSummary" class="muted">Run analysis to see your score.</p>
+      <h3>Missing Keywords</h3>
+      <ul id="missingKeywords"></ul>
+      <h3>Matched Keywords</h3>
+      <ul id="matchedKeywords"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Tailored Resume Bullets</h2>
+      <textarea id="tailoredBullets" rows="14" readonly></textarea>
+      <button id="copyBulletsBtn" class="secondary">Copy Bullets</button>
+    </section>
+
+    <section class="card">
+      <h2>Cover Letter Draft</h2>
+      <textarea id="coverLetter" rows="14" readonly></textarea>
+      <button id="copyCoverBtn" class="secondary">Copy Cover Letter</button>
+    </section>
+
+    <section class="card">
+      <h2>Interview Prep</h2>
+      <textarea id="interviewQuestions" rows="14" readonly></textarea>
+      <button id="copyInterviewBtn" class="secondary">Copy Questions</button>
+    </section>
+
+    <section class="card full">
+      <h2>Application Tracker</h2>
+      <div class="tracker-row">
+        <input id="companyName" placeholder="Company" />
+        <input id="applicationRole" placeholder="Role" />
+        <select id="applicationStatus">
+          <option>Wishlist</option>
+          <option>Applied</option>
+          <option>Interviewing</option>
+          <option>Offer</option>
+          <option>Rejected</option>
+        </select>
+        <button id="addApplicationBtn">Add</button>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Company</th><th>Role</th><th>Status</th><th>Date</th></tr>
+        </thead>
+        <tbody id="applicationTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <button id="exportBtn">Export Session (.json)</button>
+    <button id="loadSampleBtn" class="secondary">Load Sample Data</button>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
